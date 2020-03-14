@@ -10,6 +10,8 @@
   "author": "Mihir Parikh",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.8.7",
+    "babel-loader": "^8.0.6",
     "rxjs": "^6.5.4",
     "rxjs-compat": "^6.5.4",
     "ts-loader": "^6.2.1",
