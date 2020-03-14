@@ -15,17 +15,24 @@ class TreeUtils {
         return found;
     }
 
-    static dfs(node) {
+    // Depth First Traversal
+    static dft(node) {
+        // if leaf node
         if (node.childNodes.length === 0) {
             console.log(node.data);
-            return node.data;
+            return;
         }
         
+        // else not leaf node
         node.childNodes.forEach((child) => {
             // return this.dfs(child) + ' ' + node.data;
-            return node.data + ' ' + this.dfs(child);
+            this.dft(child);
         });
+        console.log(node.data);
+        return;
     }
+
+    // Search words in a tree
 }
 
 export default TreeUtils;
