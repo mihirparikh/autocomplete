@@ -1,20 +1,10 @@
 
 // implement an autocomplete function
-// dictionary: ['aha', 'foo', 'bar', 'ahoo', 'fish']
-// input 'ah'
-// output: aha ahoo
-//
-// input 'f'
-// output: foo fish
-
 import RootNode from "./rootNode";
-import { notDeepEqual } from "assert";
-
+// import { notDeepEqual } from "assert";
 import {Dictionary} from "./dictionary";
 
-console.log("dictionary length: " + Dictionary.length);
-
-// const dictionary = ["aha", "foo", "bar", "ahoo", "fish", "pat", "pate", "pates"];
+console.log("Dictionary length: " + Dictionary.length);
 
 // maybe tree should be represented by its own class..
 let root = new RootNode(null);
@@ -24,7 +14,7 @@ Dictionary.forEach((word) => {
     root.addWord(word);
 });
 
-root.showDictionary();
+// root.showDictionary();
 
 // process user input
 var inputEl = document.getElementById("textinput");
