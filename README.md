@@ -1,5 +1,7 @@
 # Autocomplete Implementation
 
+### Searches for matches in the 1000 most common English words
+
 ## Installation
 
 clone the repo
