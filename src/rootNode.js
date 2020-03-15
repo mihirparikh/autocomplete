@@ -27,6 +27,45 @@ class RootNode extends TreeNode {
 
         addLetters(this, word);
     }
+
+    // predictive guidance
+    predictWord(string) {
+        const matchingWords = [];
+
+        // match characters to find the sub-tree
+        var getSubTree = (partWord, tree) => {
+            var node = tree;
+            while (partWord && node.childNodes.hasOwnProperty(partWord[0])) {
+                node = node.childNodes[partWord[0]];
+                partWord = partWord.substr(1);
+            }
+            return node;
+        };
+    
+        // use partial entries to construct array of suggested words
+        const parseDictionary = (subString, subTree) => {
+            Object.values(subTree.childNodes).forEach((child) => {
+                var str = subString + child.data;
+                if (child.endOfWord) {
+                    matchingWords.push(str);
+                }
+                parseDictionary(str, child);
+            });
+        };
+    
+        var subTree = getSubTree(string, this);
+        // look for words only if subTree is not at root
+        if (subTree) {
+            parseDictionary(string, subTree);
+        }
+    
+        return matchingWords;
+    }
+
+    // debug output to show the enitre dictionary
+    showDictionary(str) {
+        console.log(this.predictWord(''));
+    }
 }
 
 export default RootNode;

@@ -7,13 +7,10 @@
 // input 'f'
 // output: foo fish
 
-// import TreeNode from "./TreeNode";
-// import TreeUtils from "./treeUtils";
 import RootNode from "./rootNode";
+import { notDeepEqual } from "assert";
 
-// const dictionary = ["aha", "foo", "bar", "ahoo", "fish"];
-const dictionary = ["aha", "bar", "ahoo"];
-// const dictionary = ["aha"];
+const dictionary = ["aha", "foo", "bar", "ahoo", "fish"];
 
 // maybe tree should be represented by its own class..
 let root = new RootNode(null);
@@ -23,14 +20,20 @@ dictionary.forEach((word) => {
     root.addWord(word);
 });
 
-console.log(root);
-
-// // use pre-order traversal to parse tree
-// // root node is a blank, so begin traversal a level below root
-// var letters = ""
-// root.childNodes.forEach((node) => {
-//     TreeUtils.dft(node);
-// });
+root.showDictionary();
 
 // process user input
+var inputEl = document.getElementById("textinput");
+//document.getElementById("textoutput").appendChild(textnode);
+
+document.addEventListener("keypress", (e) => {
+    setTimeout(() => {
+        if (document.activeElement === inputEl) {
+            //console.log("keydown event : " + inputEl.value);
+            var predictions = root.predictWord(inputEl.value);
+            var displayPredictions = predictions.join(' ');
+            document.getElementById("textoutput").innerHTML = displayPredictions;
+        }
+    }, 25);
+});
 
