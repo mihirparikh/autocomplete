@@ -57,6 +57,11 @@ class RootNode extends TreeNode {
         var subTree = getSubTree(string, this);
         // look for words only if subTree is not at root
         if (subTree) {
+            // if already at word boundry add to the hint array
+            if (subTree.endOfWord) {
+                matchingWords.push(string);
+            }
+            // check if there are other matching words in the tree
             parseDictionary(string, subTree);
         } else {
             return [];

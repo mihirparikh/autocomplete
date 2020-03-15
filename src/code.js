@@ -10,13 +10,17 @@
 import RootNode from "./rootNode";
 import { notDeepEqual } from "assert";
 
-const dictionary = ["aha", "foo", "bar", "ahoo", "fish"];
+import {Dictionary} from "./dictionary";
+
+console.log("dictionary length: " + Dictionary.length);
+
+// const dictionary = ["aha", "foo", "bar", "ahoo", "fish", "pat", "pate", "pates"];
 
 // maybe tree should be represented by its own class..
 let root = new RootNode(null);
 
 // Insert dictionary into tree
-dictionary.forEach((word) => {
+Dictionary.forEach((word) => {
     root.addWord(word);
 });
 
@@ -31,9 +35,9 @@ document.addEventListener("keydown", (e) => {
         if (document.activeElement === inputEl) {
             //console.log("keydown event : " + inputEl.value);
             var predictions = root.predictWord(inputEl.value);
-            var displayPredictions = predictions.join(' ');
+            var displayPredictions = predictions.join('<BR>');
             document.getElementById("textoutput").innerHTML = displayPredictions;
         }
-    }, 25);
+    }, 10);
 });
 
