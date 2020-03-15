@@ -26,7 +26,7 @@ root.showDictionary();
 var inputEl = document.getElementById("textinput");
 //document.getElementById("textoutput").appendChild(textnode);
 
-document.addEventListener("keypress", (e) => {
+document.addEventListener("keydown", (e) => {
     setTimeout(() => {
         if (document.activeElement === inputEl) {
             //console.log("keydown event : " + inputEl.value);

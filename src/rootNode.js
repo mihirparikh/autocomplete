@@ -35,11 +35,12 @@ class RootNode extends TreeNode {
         // match characters to find the sub-tree
         var getSubTree = (partWord, tree) => {
             var node = tree;
-            while (partWord && node.childNodes.hasOwnProperty(partWord[0])) {
+            let match = node.childNodes.hasOwnProperty(partWord[0]);
+            while (partWord && match) {
                 node = node.childNodes[partWord[0]];
                 partWord = partWord.substr(1);
             }
-            return node;
+            return (match) ? node : null;
         };
     
         // use partial entries to construct array of suggested words
@@ -57,6 +58,8 @@ class RootNode extends TreeNode {
         // look for words only if subTree is not at root
         if (subTree) {
             parseDictionary(string, subTree);
+        } else {
+            return [];
         }
     
         return matchingWords;
