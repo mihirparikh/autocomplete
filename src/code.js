@@ -18,14 +18,23 @@ Dictionary.forEach((word) => {
 
 // process user input
 var inputEl = document.getElementById("textinput");
-//document.getElementById("textoutput").appendChild(textnode);
+const zeroState = '<span>Begin Typing..</span>';
+document.getElementById("textoutput").innerHTML = zeroState;
 
+// keypress event
 document.addEventListener("keydown", (e) => {
-    setTimeout(() => {
+    setTimeout(() => {    
         if (document.activeElement === inputEl) {
-            //console.log("keydown event : " + inputEl.value);
             var predictions = root.predictWord(inputEl.value);
-            var displayPredictions = predictions.join('<BR>');
+            let displayPredictions = zeroState;
+            if (inputEl.value.length) {
+                displayPredictions = "Word Count: " + predictions.length + "<BR>"; 
+                if (predictions.length > 0) {
+                    displayPredictions += predictions.join('<BR>');          
+                }
+            } else {
+                displayPredictions = zeroState;
+            }
             document.getElementById("textoutput").innerHTML = displayPredictions;
         }
     }, 10);
