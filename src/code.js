@@ -1,7 +1,6 @@
 
 // implement an autocomplete function
 import RootNode from "./rootNode";
-// import { notDeepEqual } from "assert";
 import {Dictionary} from "./dictionary";
 
 console.log("Dictionary length: " + Dictionary.length);
@@ -30,7 +29,7 @@ function removeElementById(id) {
 
 // future proof
 var wordSelectHandler = (payload) => {
-    console.log("selected : " + payload);
+    // console.log("selected : " + payload);
     inputEl.focus();
     inputEl.value = payload;
     inputHandler(25);
@@ -84,6 +83,6 @@ function inputHandler(pause) {
 
 // keypress event
 document.addEventListener("keydown", (e) => {
-    console.log("keydown event: " + e.key);
+    // console.log("keydown event: " + e.key);
     inputHandler(25);
 });
