@@ -2,7 +2,10 @@
 
 ### Searches for matches in the 1000 most common English words
 
-## Installation
+## Hosted URL
+https://autocompletr.herokuapp.com/
+
+## Local Installation
 
 clone the repo
 `git clone https://github.com/mihirparikh/autocomplete.git`
