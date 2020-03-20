@@ -1,7 +1,12 @@
 const path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+const htmlPlugin = new HtmlWebPackPlugin({
+  template: "./src/client/index.html"
+});
 
 module.exports = {
-  entry: './src/code.js',
+  entry: './src/client/code.js',
   devtool: 'inline-source-map',
   module: {
     rules: [
@@ -21,7 +26,9 @@ module.exports = {
     extensions: [ '.ts', '.js', '.tsx' ]
   },
   output: {
-    filename: 'bundle.js',
+    //filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist')
-  }
+  },
+  plugins: [htmlPlugin]
 };

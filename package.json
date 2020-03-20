@@ -5,13 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "devbuid": "webpack --debug --mode devlopment",
+    "build": "webpack --debug --mode production",
+    "devstart": "npm run build && node ./src/server/index.js",
+    "start": "node ./src/server/index.js",
+    "debug": "node inspect ./src/server/index.js"
   },
   "author": "Mihir Parikh",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.8.7",
     "babel-loader": "^8.0.6",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^3.2.0",
+    "npm": "^6.14.2",
     "rxjs": "^6.5.4",
     "rxjs-compat": "^6.5.4",
     "ts-loader": "^6.2.1",
